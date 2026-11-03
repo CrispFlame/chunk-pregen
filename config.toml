@@ -1,0 +1,38 @@
+# Chunk Pregen configuration
+# This file is read once when the server starts. Restart after editing.
+
+# World used when you haven't picked one with "/pregen world" and you run
+# a command from the console.
+default_world = "minecraft:overworld"
+
+# Biggest radius (in blocks) a run may use.
+max_radius_blocks = 100000
+
+# --- Speed vs. lag -----------------------------------------------------------
+# Each server tick, the plugin generates chunks for at most this many
+# milliseconds. A tick is 50 ms, so 20 leaves room for the rest of the server.
+# Raise it to pregen faster, lower it if players feel lag.
+budget_ms_per_tick = 20
+
+# Hard cap on chunks per tick, even if the time budget allows more.
+max_chunks_per_tick = 64
+
+# Auto-throttle: while the server is slower than this, pregen pauses itself
+# and resumes on its own once the server recovers.
+min_tps = 18.0
+max_mspt = 45.0
+
+# --- Reporting ---------------------------------------------------------------
+# Seconds between progress messages (0 = never). Messages go to the console
+# and, if broadcast_progress is true, to all players.
+progress_interval_secs = 30
+broadcast_progress = true
+
+# --- Safety ------------------------------------------------------------------
+# Save the world to disk every this many chunks (0 = never; the server's own
+# autosave still applies). Protects the work if the server crashes.
+save_world_every_chunks = 5000
+
+# After a restart, continue an unfinished run automatically.
+# false = it waits for "/pregen resume".
+auto_resume = false
